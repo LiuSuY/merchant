@@ -1,9 +1,10 @@
-export default {
+import { configDefaults, defineConfig } from 'vitest/config'
+export default defineConfig({
   test: {
     environment: 'jsdom',
-    exclude: ['node_modules', 'dist', '.idea', '.git', '.cache', 'e2e/*'],
+    exclude: [...configDefaults.exclude, 'e2e/*'],
     transformMode: {
       web: [/\.[jt]sx$/]
     }
   }
-};
+});
